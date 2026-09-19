@@ -57,6 +57,24 @@ The 16 rows of padding at the top of both images exist because Chrome draws them
 images as if they begin 16 DIP above the tab strip, which is
 `ThemeProperties::kFrameHeightAboveTabs` in its source.
 
+## Chrome Web Store assets
+
+Everything a listing needs lives in [`store/`](store), alongside the 128x128
+icon the extension already ships at [`images/icon-128.png`](images/icon-128.png).
+The Web Store requires all three: icon, at least one 1280x800 screenshot, and a
+440x280 promo tile.
+
+The upload itself is a zip with the manifest at the root, which is just the
+tracked files repacked:
+
+    zip -r kanagawa-great-wave.zip manifest.json images LICENSE LICENSE-ARTWORK
+
+Publishing it needs a Web Store developer account and its one-time five dollar
+fee. Note that a store build should be recut for a wider canvas first: this one
+is cut for a 1710 point window, and because Chrome anchors frame images left,
+anyone on a narrower screen loses the wave off the right edge while anyone wider
+gets a repeat seam.
+
 ## Licence
 
 The code, meaning `make-images.py` and the manifest, is GPL-3.0. See
