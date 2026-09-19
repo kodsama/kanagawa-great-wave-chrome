@@ -5,6 +5,10 @@ tab lifted out of it. This is a port of a Firefox theme to Chrome, which takes
 more than copying the image across because the two browsers place frame artwork
 by different rules.
 
+![The tab strip and toolbar, with the open tab lifted out of the artwork](docs/tab-strip.png)
+
+![A full Chrome window](docs/window.png)
+
 ## The Firefox original
 
 **[Japan Style - Kanagawa Great Wave HI RES](https://addons.mozilla.org/en-US/firefox/addon/japan-style-kanagawa-gr-232767/)**
