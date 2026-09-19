@@ -32,12 +32,21 @@ Chrome re-reads it at every start.
 ## Fitting it to your screen
 
 Firefox pins frame images to the right edge of the window. Chrome pins them to
-the left and repeats them, and exposes no setting to change that, so the wave
-only lands where Firefox puts it if the image is exactly as wide as the window.
-The image here is cut for a full-screen window on a 1710 point display. For any
-other screen, run `./make-images.py <width>` with that screen's width in points
-and reload the theme. A window narrower than that width loses the wave off the
-right side.
+the left and exposes no setting to change that, so the wave only lands where
+Firefox puts it if the image is exactly as wide as the window. These are cut for
+a full-screen window on a 1710 point display, with the wave occupying the last
+279 points before the cut.
+
+Past the cut the print's own paper carries on to 3072 points, wider than any
+window you are likely to open. That part is not decoration. Without it Chrome
+repeats the image as soon as the window is wider than the cut, putting the dark
+signature strip hard against the grey left edge, which reads as a rendering
+fault. With it, a wider window simply shows more paper.
+
+A narrower window is the case that still loses something, since it only ever
+sees the first N points: below about 1430 the wave falls off the right entirely.
+Run `./make-images.py <width>` with your screen's width in points to recut it.
+That moves where the wave sits and leaves the paper behind it alone.
 
 ## Why there are two images
 
@@ -70,10 +79,9 @@ tracked files repacked:
     zip -r kanagawa-great-wave.zip manifest.json images LICENSE LICENSE-ARTWORK
 
 Publishing it needs a Web Store developer account and its one-time five dollar
-fee. Note that a store build should be recut for a wider canvas first: this one
-is cut for a 1710 point window, and because Chrome anchors frame images left,
-anyone on a narrower screen loses the wave off the right edge while anyone wider
-gets a repeat seam.
+fee. Anyone installing from the store on a screen narrower than about 1430
+points will see the wave cut off the right, which is worth saying in the listing
+description alongside the link back here for recutting.
 
 ## Licence
 
